@@ -6,8 +6,8 @@
  
  
 2. ### About This Repository
- - some files about the class of *Data Structure*
+   - some files about the class of *Data Structure*
 
 3. ### More Information
- - 🌐網址  
+   - 🌐網址  
    🔗 [我的github網址](https://yachi-byte.github.io/)
