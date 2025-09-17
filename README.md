@@ -1,8 +1,8 @@
 # 11401_CS203A
- ##1133314 葉冠琪
+ ## 1133314 葉冠琪
  ---
  ## About This Repository
- -some files about the class of *data structure*
+ - some files about the class of *data structure*
  ---
  ## More Information
  1.🌐 網址  
