@@ -8,19 +8,30 @@
 
    Development History:
     - 2025/11/11: Initial implementation
-    - 2025/11/17: Refactored to use hash_fn.hpp
+    - 2025/11/23: Refactored to use hash_fn.hpp
 
    Developer: Yu-Feng Huang <yfhuang@saturn.yzu.edu.tw>
  */
 #include "hash_fn.hpp"
 
+//h(k) = k mod m(table size(m))
+//Division Method
 int myHashInt(int key, int m) {
-    // TODO: replace with your own design
+
+    if (m <= 0) return 0; 
+    
     return key % m;  // basic division method
 }
 
+//basic covert each character to  ASCII code and combine them
 int myHashString(const std::string& str, int m) {
+
+    if (m <= 0)  return 0; 
     unsigned long hash = 0;
-    // TODO: replace with your own design
+    
+    for (char c : str) {
+        hash += static_cast<unsigned char>(c);
+    }
+
     return static_cast<int>(hash % m);  // basic division method
 }
