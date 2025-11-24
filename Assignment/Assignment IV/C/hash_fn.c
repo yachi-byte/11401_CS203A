@@ -14,14 +14,28 @@
  */
 
 #include "hash_fn.h"
+#include <stdlib.h>
 
 int myHashInt(int key, int m) {
-    // TODO: replace with your own design
-    return key % m;  // division method example
+    if (m <= 0) return 0;
+
+    unsigned int k = (unsigned int)(key < 0 ? -key : key); //non negative
+    const unsigned int HASH_MULTIPLIER = 31;
+
+    unsigned int scrambled_key = k * HASH_MULTIPLIER;
+   
+    return scrambled_key % m;  // division method example
 }
 
 int myHashString(const char* str, int m) {
-    unsigned long hash = 0;
-    // TODO: replace with your own design
+
+    if (m <= 0 || str == NULL || *str == '\0') {
+        return 0;
+    }
+
+    unsigned long long hash = 0;
+    for (int i = 0; str[i] != '\0'; i++) {
+        hash = (hash * 31 + (unsigned char)str[i]) % m;
+    }
     return (int)(hash % m); // basic division method
 }
