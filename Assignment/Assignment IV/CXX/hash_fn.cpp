@@ -32,7 +32,9 @@ int myHashInt(int key, int m) {
 //basic covert each character to  ASCII code and combine them
 int myHashString(const std::string& str, int m) {
 
-    if (m <= 0)  return 0; 
+    if(m <= 0 || str.empty()) {
+        return 0;
+    } 
     unsigned long long hash = 0;  //reduce unpredictble collisions
     
     for (char c : str) {
