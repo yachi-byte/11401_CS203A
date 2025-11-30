@@ -153,11 +153,13 @@ Email: [ya.ykc950429@gmail.com]
 - Observations: Outputs align with the analysis, showing better distribution with prime table sizes.
 
 ## Analysis
-- Prime vs non-prime `m`: Prime table sizes generally result in better distribution and fewer collisions.
-- Patterns or collisions: Non-prime table sizes tend to produce repetitive patterns, leading to more collisions.
-- Improvements: Use a prime table size and a well-designed hash function to enhance distribution.
+- Prime vs non-prime `m`:
+  - Prime(m=10):The predictability of the sequence ( 6, 9, 2...) is obvious.
+  - non-prime(m=11, 37):showed better randomness.And m=37 spread more evenly than m=11.
+- Patterns or collisions: prime table sizes (m=11, 37) demonstrated higher uniformity, while the non-prime size (m=10) is functional but displays a strong, exploitable pattern.
+- Improvements: Use a prime table size and a well-designed hash function to enhance distribution.I think 
 
 ## Reflection
-1. Designing hash functions requires balancing simplicity and effectiveness to minimize collisions.
+1. Designing hash functions requires balancing simplicity and effectiveness to minimize collisions.In the design of the integer hash function, I experimented with the basic Division Method and Multiplication Method, but the results were unsatisfactory. When trying the Universal Hashing strategy, collisions were reduced simply by fine-tuning parameters a and p.
 2. Table size significantly impacts the uniformity of the hash distribution, with prime sizes performing better.
-3. The design using a prime table size and a linear transformation formula produced the most uniform index sequence.
+3. The Universal Hashing design, utilizing a prime $p$ and a carefully chosen multiplier $a$, can transform linear input sequences into non-linear output sequences. I also found that adjusting parameters can resolve consecutive integer collision issues, leading to more uniform distribution.
