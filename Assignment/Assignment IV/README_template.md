@@ -105,239 +105,37 @@ Email: [ya.ykc950429@gmail.com]
 
 ### Result Snapshot
 - Example output for integers:
-  ```
-  === Hash Function Observation (C Version) ===
+  
+- === Hash Function Observation (C Version) ===
 
-  === Table Size m = 10 ===
-  Key     Index
-  -----------------
-  21      6
-  22      9
-  23      2
-  24      5
-  25      8
-  26      0
-  27      3
-  28      6
-  29      9
-  30      2
-  51      1
-  52      4
-  53      6
-  54      9
-  55      2
-  56      5
-  57      8
-  58      0
-  59      3
-  60      6
-  
-  === Table Size m = 11 ===
-  Key     Index
-  -----------------
-  21      5
-  22      7
-  23      9
-  24      0
-  25      2
-  26      10
-  27      1
-  28      3
-  29      5
-  30      7
-  51      7
-  52      9
-  53      6
-  54      8
-  55      10
-  56      1
-  57      3
-  58      0
-  59      2
-  60      4
-  
-  === Table Size m = 37 ===
-  Key     Index
-  -----------------
-  21      16
-  22      29
-  23      5
-  24      18
-  25      31
-  26      10
-  27      23
-  28      36
-  29      12
-  30      25
-  51      14
-  52      27
-  53      6
-  54      19
-  55      32
-  56      8
-  57      21
-  58      0
-  59      13
-  60      26
-  
-  === String Hash (m = 10) ===
-  Key     Index
-  -----------------
-  cat     2
-  dog     4
-  bat     1
-  cow     9
-  ant     3
-  owl     8
-  bee     0
-  hen     5
-  pig     0
-  fox     3
-  
-  === String Hash (m = 11) ===
-  Key     Index
-  -----------------
-  cat     10
-  dog     6
-  bat     6
-  cow     7
-  ant     9
-  owl     6
-  bee     5
-  hen     5
-  pig     0
-  fox     9
-  
-  === String Hash (m = 37) ===
-  Key     Index
-  -----------------
-  cat     27
-  dog     3
-  bat     28
-  cow     20
-  ant     25
-  owl     23
-  bee     26
-  hen     29
-  pig     27
-  fox     18
+<img width="600" height="569" alt="Image" src="https://github.com/user-attachments/assets/52c3ced1-bf33-4e25-8422-478e24a8cefc" />
 
-  === Hash Function Observation (C++ Version) ===
+<img width="600" height="514" alt="Image" src="https://github.com/user-attachments/assets/4c3da14d-5e69-4188-b945-b53d572d421a" />
 
-  === Table Size m = 10 ===
-  Key     Index
-  -----------------
-  21      6
-  22      9
-  23      2
-  24      5
-  25      8
-  26      0
-  27      3
-  28      6
-  29      9
-  30      2
-  51      1
-  52      4
-  53      6
-  54      9
-  55      2
-  56      5
-  57      8
-  58      0
-  59      3
-  60      6
+<img width="600" height="529" alt="Image" src="https://github.com/user-attachments/assets/91c0c900-8df7-4878-9558-85e4375e571b" />
+
+<img width="600" height="299" alt="Image" src="https://github.com/user-attachments/assets/63f83c27-61db-495c-b64c-4eef48eaaa48" />
+
+<img width="600" height="305" alt="Image" src="https://github.com/user-attachments/assets/e0190155-8af9-4202-af92-53d65c5b771d" />
+
+<img width="600" height="301" alt="Image" src="https://github.com/user-attachments/assets/aaf3daf9-d914-4468-9c45-717a3b66c0d1" />
+
+- === Hash Function Observation (C++ Version) ===
   
-  === Table Size m = 11 ===
-  Key     Index
-  -----------------
-  21      5
-  22      7
-  23      9
-  24      0
-  25      2
-  26      10
-  27      1
-  28      3
-  29      5
-  30      7
-  51      7
-  52      9
-  53      6
-  54      8
-  55      10
-  56      1
-  57      3
-  58      0
-  59      2
-  60      4
+<img width="600" height="560" alt="Image" src="https://github.com/user-attachments/assets/be210a2b-6395-4a39-96bd-f61195651490" />
+
+<img width="600" height="520" alt="Image" src="https://github.com/user-attachments/assets/972c0f6a-ad2f-4240-939d-250cfc03e302" />
+
+<img width="600" height="517" alt="Image" src="https://github.com/user-attachments/assets/03b0b57b-aa3f-4e63-a1da-e540a323233b" />
+
+<img width="600" height="318" alt="Image" src="https://github.com/user-attachments/assets/36c2f815-0402-4382-849d-ac6b1bf2fd0a" />
+
+<img width="600" height="307" alt="Image" src="https://github.com/user-attachments/assets/6a79114f-c9f2-4c93-a0ff-b1a6e7a19ab4" />
+
+<img width="600" height="296" alt="Image" src="https://github.com/user-attachments/assets/6997b7b2-1900-4988-8933-cbc5a7336c72" />
+
+ 
   
-  === Table Size m = 37 ===
-  Key     Index
-  -----------------
-  21      16
-  22      29
-  23      5
-  24      18
-  25      31
-  26      10
-  27      23
-  28      36
-  29      12
-  30      25
-  51      14
-  52      27
-  53      6
-  54      19
-  55      32
-  56      8
-  57      21
-  58      0
-  59      13
-  60      26
-  
-  === String Hash (m = 10) ===
-  Key     Index
-  -----------------
-  cat     2
-  dog     4
-  bat     1
-  cow     9
-  ant     3
-  owl     8
-  bee     0
-  hen     5
-  pig     0
-  fox     3
-  
-  === String Hash (m = 11) ===
-  Key     Index
-  -----------------
-  cat     10
-  dog     6
-  bat     6
-  cow     7
-  ant     9
-  owl     6
-  bee     5
-  hen     5
-  pig     0
-  fox     9
-  
-  === String Hash (m = 37) ===
-  Key     Index
-  -----------------
-  cat     27
-  dog     3
-  bat     28
-  cow     20
-  ant     25
-  owl     23
-  bee     26
-  hen     29
-  pig     27
-  fox     18
-  ```
 
 - Observations: Outputs align with the analysis, showing better distribution with prime table sizes.
 - Example output for integers:
