@@ -4,21 +4,39 @@ This assignment focuses on the design and observation of hash functions using C/
 Students are expected to implement and analyze the behavior of hash functions, 
 evaluate their efficiency, and understand their applications in computer science.
 
-Developer: [Your Name]  
-Email: [Your email]  
+Developer: [葉冠琪]  
+Email: [ya.ykc950429@gmail.com]  
 
 ## My Hash Function
 ### Integer Keys 
 - Formula / pseudocode:
   ```text
-  [Your implementation here]
+  int myHashInt(int key, int m) {
+    if (m <= 0) return 0; 
+    const unsigned int p = 71; //prime
+    const unsigned int a = 13; 
+    const unsigned int b = 27; //Offset
+  
+    unsigned int k = (unsigned int)key;    
+    unsigned int scrambled_key = (a * k + b) % p;
+    return scrambled_key % m;
+  }
   ```
 - Rationale: [Explain your design choices and how they minimize collisions.]
 
 ### Non-integer Keys
 - Formula / pseudocode:
   ```text
-  [Your implementation here]
+  int myHashString(const std::string& str, int m) {
+    if(m <= 0 || str.empty()) {
+        return 0;
+    } 
+    unsigned long long hash = 0;    
+    for (char c : str) {
+        hash = (hash * 31 + static_cast<unsigned char>(c)) % m;
+    }
+    return static_cast<int>(hash % m);  // basic division method
+  }
   ```
 - Rationale: [Explain your approach and its effectiveness for non-integer keys.]
 
@@ -33,9 +51,9 @@ Email: [Your email]
 ## Results
 | Table Size (m) | Index Sequence         | Observation              |
 |----------------|------------------------|--------------------------|
-| 10             | 1, 2, 3, 4, ...        | Pattern repeats every 10 |
-| 11             | 10, 0, 1, 2, ...       | More uniform             |
-| 37             | 20, 21, 22, 23, ...    | Near-uniform             |
+| 10             | 6, 9, 2, 5, 8, 0, 3, 6, 9, 2, 1, 4, 6, 9, 2, 5, 8, 0, 3, 6        | Pattern repeats every 10 |
+| 11             | 5, 7, 9, 0, 2, 10, 1, 3, 5, 7, 7, 9, 6, 8, 10, 1, 3, 0, 2, 4       | More uniform             |
+| 37             | 16, 29, 5, 18, 31, 10, 23, 36, 12, 25, 14, 27, 6, 19, 32, 8, 21, 0, 13, 26    | Near-uniform             |
 
 ## Compilation, Build, Execution, and Output
 
@@ -83,73 +101,235 @@ Email: [Your email]
   ```
   === Hash Function Observation (C Version) ===
 
-  === Table Size m = 10 ===
-  Key     Index
-  -----------------
-  21      1
-  22      2
-  ...
+=== Table Size m = 10 ===
+Key     Index
+-----------------
+21      6
+22      9
+23      2
+24      5
+25      8
+26      0
+27      3
+28      6
+29      9
+30      2
+51      1
+52      4
+53      6
+54      9
+55      2
+56      5
+57      8
+58      0
+59      3
+60      6
 
-  === Table Size m = 11 ===
-  Key     Index
-  -----------------
-  21      10
-  22      0
-  ...
+=== Table Size m = 11 ===
+Key     Index
+-----------------
+21      5
+22      7
+23      9
+24      0
+25      2
+26      10
+27      1
+28      3
+29      5
+30      7
+51      7
+52      9
+53      6
+54      8
+55      10
+56      1
+57      3
+58      0
+59      2
+60      4
 
-  === Table Size m = 37 ===
-  Key     Index
-  -----------------
-  21      21
-  22      22
-  ...
+=== Table Size m = 37 ===
+Key     Index
+-----------------
+21      16
+22      29
+23      5
+24      18
+25      31
+26      10
+27      23
+28      36
+29      12
+30      25
+51      14
+52      27
+53      6
+54      19
+55      32
+56      8
+57      21
+58      0
+59      13
+60      26
+
+=== String Hash (m = 10) ===
+Key     Index
+-----------------
+cat     2
+dog     4
+bat     1
+cow     9
+ant     3
+owl     8
+bee     0
+hen     5
+pig     0
+fox     3
+
+=== String Hash (m = 11) ===
+Key     Index
+-----------------
+cat     10
+dog     6
+bat     6
+cow     7
+ant     9
+owl     6
+bee     5
+hen     5
+pig     0
+fox     9
+
+=== String Hash (m = 37) ===
+Key     Index
+-----------------
+cat     27
+dog     3
+bat     28
+cow     20
+ant     25
+owl     23
+bee     26
+hen     29
+pig     27
+fox     18
 
   === Hash Function Observation (C++ Version) ===
 
-  === Table Size m = 10 ===
-  Key     Index
-  -----------------
-  21      1
-  22      2
-  ...
+=== Table Size m = 10 ===
+Key     Index
+-----------------
+21      6
+22      9
+23      2
+24      5
+25      8
+26      0
+27      3
+28      6
+29      9
+30      2
+51      1
+52      4
+53      6
+54      9
+55      2
+56      5
+57      8
+58      0
+59      3
+60      6
 
-  === Table Size m = 11 ===
-  Key     Index
-  -----------------
-  21      10
-  22      0
-  ...
+=== Table Size m = 11 ===
+Key     Index
+-----------------
+21      5
+22      7
+23      9
+24      0
+25      2
+26      10
+27      1
+28      3
+29      5
+30      7
+51      7
+52      9
+53      6
+54      8
+55      10
+56      1
+57      3
+58      0
+59      2
+60      4
 
-  === Table Size m = 37 ===
-  Key     Index
-  -----------------
-  21      21
-  22      22
-  ...
-  ```
+=== Table Size m = 37 ===
+Key     Index
+-----------------
+21      16
+22      29
+23      5
+24      18
+25      31
+26      10
+27      23
+28      36
+29      12
+30      25
+51      14
+52      27
+53      6
+54      19
+55      32
+56      8
+57      21
+58      0
+59      13
+60      26
 
-- Example output for strings:
-  ```
-  === String Hash (m = 10) ===
-  Key     Index
-  -----------------
-  cat     0
-  dog     0
-  ...
+=== String Hash (m = 10) ===
+Key     Index
+-----------------
+cat     2
+dog     4
+bat     1
+cow     9
+ant     3
+owl     8
+bee     0
+hen     5
+pig     0
+fox     3
 
-  === String Hash (m = 11) ===
-  Key     Index
-  -----------------
-  cat     0
-  dog     0
-  ...
+=== String Hash (m = 11) ===
+Key     Index
+-----------------
+cat     10
+dog     6
+bat     6
+cow     7
+ant     9
+owl     6
+bee     5
+hen     5
+pig     0
+fox     9
 
-  === String Hash (m = 37) ===
-  Key     Index
-  -----------------
-  cat     0
-  dog     0
-  ...
+=== String Hash (m = 37) ===
+Key     Index
+-----------------
+cat     27
+dog     3
+bat     28
+cow     20
+ant     25
+owl     23
+bee     26
+hen     29
+pig     27
+fox     18
   ```
 
 - Observations: Outputs align with the analysis, showing better distribution with prime table sizes.
