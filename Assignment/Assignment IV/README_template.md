@@ -6,7 +6,10 @@ evaluate their efficiency, and understand their applications in computer science
 
 Developer: [葉冠琪]  
 Email: [ya.ykc950429@gmail.com]  
-
+## Development Platform
+- OS: Windows 11
+- Toolchain: MinGW-w64 (MSYS2)
+- IDE: VS Code
 ## My Hash Function
 ### Integer Keys 
 - Formula / pseudocode:
@@ -55,9 +58,9 @@ Email: [ya.ykc950429@gmail.com]
 ## Results
 | Table Size (m) | Index Sequence         | Observation              |
 |----------------|------------------------|--------------------------|
-| 10             | 6, 9, 2, 5, 8, 0, 3, 6, 9, 2, 1, 4, 6, 9, 2, 5, 8, 0, 3, 6        | Pattern repeats every 10 |
-| 11             | 5, 7, 9, 0, 2, 10, 1, 3, 5, 7, 7, 9, 6, 8, 10, 1, 3, 0, 2, 4       | More uniform             |
-| 37             | 16, 29, 5, 18, 31, 10, 23, 36, 12, 25, 14, 27, 6, 19, 32, 8, 21, 0, 13, 26    | Near-uniform             |
+| 10             | 6, 9, 2, 5, 8, 0, 3, 6, 9, 2, 1, 4, 6, 9, 2, 5, 8, 0, 3, 6        |  Input keys jump by 3 positions each time (13 mod 10 = 3). Since 3 and 10 are co-prime, it visits all slots before repeating, but the pattern is predictable. |
+| 11             | 5, 7, 9, 0, 2, 10, 1, 3, 5, 7, 7, 9, 6, 8, 10, 1, 3, 0, 2, 4       | effectively spreading consecutive keys.             |
+| 37             | 16, 29, 5, 18, 31, 10, 23, 36, 12, 25, 14, 27, 6, 19, 32, 8, 21, 0, 13, 26    | consecutive inputs result in widely separated indices             |
 
 ## Compilation, Build, Execution, and Output
 
