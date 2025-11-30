@@ -24,9 +24,9 @@ int myHashInt(int key, int m) {
 
     if (m <= 0) return 0; 
 
-    const unsigned int p = 97; //prime
-    const unsigned int a = 31; 
-    const unsigned int b = 15; //Offset
+    const unsigned int p = 71; //prime
+    const unsigned int a = 13; 
+    const unsigned int b = 27; //Offset
 
     unsigned int k = (unsigned int)key; //non negative
     // step 1 : scramble consecutive inputs

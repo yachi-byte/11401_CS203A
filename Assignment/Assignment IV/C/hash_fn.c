@@ -23,9 +23,9 @@
 int myHashInt(int key, int m) {
     if (m <= 0) return 0;
 
-    const unsigned int p = 97;
-    const unsigned int a = 31;
-    const unsigned int b = 15;
+    const unsigned int p = 71;
+    const unsigned int a = 13;
+    const unsigned int b = 27;
 
     unsigned int k = (unsigned int) key; //non negative
     
