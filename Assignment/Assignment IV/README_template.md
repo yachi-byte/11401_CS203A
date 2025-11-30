@@ -339,15 +339,15 @@ Email: [ya.ykc950429@gmail.com]
 - Observations: Outputs align with the analysis, showing better distribution with prime table sizes.
 - Example output for integers:
   ```
-  Hash table (m=10): [1, 2, 3, 4, 5, 6, 7, 8, 9, 0]
-  Hash table (m=11): [10, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
-  Hash table (m=37): [20, 21, 22, 23, 24, 25, 26, 27, 28, 29, ...]
+  Hash table (m=10): [6, 9, 2, 5, 8, 0, 3, 6, 9, 2, 1, 4, 6, 9, 2, 5, 8, 0, 3, 6]
+  Hash table (m=11): [5, 7, 9, 0, 2, 10, 1, 3, 5, 7, 7, 9, 6, 8, 10, 1, 3, 0, 2, 4]
+  Hash table (m=37): [16, 29, 5, 18, 31, 10, 23, 36, 12, 25, 14, 27, 6, 19, 32, 8, 21, 0, 13, 26]
   ```
 - Example output for strings:
   ```
-  Hash table (m=10): ["cat", "dog", "bat", "cow", "ant", ...]
-  Hash table (m=11): ["fox", "cat", "dog", "bat", "cow", ...]
-  Hash table (m=37): ["bee", "hen", "pig", "fox", "cat", ...]
+  Hash table (m=10): [2, 4, 1, 9, 3, 8, 0, 5, 0, 3 ]
+  Hash table (m=11): [10, 6, 6, 7, 9, 6, 5, 5, 0, 9]
+  Hash table (m=37): [27, 3, 28, 20, 25, 23, 26, 29, 27, 18]
   ```
 - Observations: Outputs align with the analysis, showing better distribution with prime table sizes.
 
