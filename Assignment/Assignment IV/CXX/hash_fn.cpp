@@ -2,6 +2,7 @@
    ========================================
    hash_fn.cpp — implement your hash functions
    ========================================
+   Gemini provides hash function improvements.
 
    Description:
     This file contains the hash functions for integer and string keys.
