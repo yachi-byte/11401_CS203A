@@ -22,7 +22,10 @@ Email: [ya.ykc950429@gmail.com]
     return scrambled_key % m;
   }
   ```
-- Rationale: [Explain your design choices and how they minimize collisions.]
+- Rationale: [I implemented a Universal Hashing strategy by ((ax + b) % p) % m.Since a simple key % m results in clustered linear indices.My formula uses a linear transformation (13 * k + 27) to scramble these inputs before mapping them to the table.]
+  - Prime (p = 71): I chose 71 because it is a prime number a little bit larger than the maximum key value (60) in the dataset.
+  - Multiplier ( a = 13): 13 is coprime with 10 and 11.
+  
 
 ### Non-integer Keys
 - Formula / pseudocode:
@@ -38,7 +41,8 @@ Email: [ya.ykc950429@gmail.com]
     return static_cast<int>(hash % m);  // basic division method
   }
   ```
-- Rationale: [Explain your approach and its effectiveness for non-integer keys.]
+- Rationale: [I used a Polynomial Rolling Hash variant to process string keys,by the formula hash = (hash * 31 + char) % m. ]
+  -   Multiplier 31 (a prime number) : to ensure the position of each character affects the final result.
 
 ## Experimental Setup
 - Table sizes tested (m): 10, 11, 37
@@ -101,235 +105,235 @@ Email: [ya.ykc950429@gmail.com]
   ```
   === Hash Function Observation (C Version) ===
 
-=== Table Size m = 10 ===
-Key     Index
------------------
-21      6
-22      9
-23      2
-24      5
-25      8
-26      0
-27      3
-28      6
-29      9
-30      2
-51      1
-52      4
-53      6
-54      9
-55      2
-56      5
-57      8
-58      0
-59      3
-60      6
-
-=== Table Size m = 11 ===
-Key     Index
------------------
-21      5
-22      7
-23      9
-24      0
-25      2
-26      10
-27      1
-28      3
-29      5
-30      7
-51      7
-52      9
-53      6
-54      8
-55      10
-56      1
-57      3
-58      0
-59      2
-60      4
-
-=== Table Size m = 37 ===
-Key     Index
------------------
-21      16
-22      29
-23      5
-24      18
-25      31
-26      10
-27      23
-28      36
-29      12
-30      25
-51      14
-52      27
-53      6
-54      19
-55      32
-56      8
-57      21
-58      0
-59      13
-60      26
-
-=== String Hash (m = 10) ===
-Key     Index
------------------
-cat     2
-dog     4
-bat     1
-cow     9
-ant     3
-owl     8
-bee     0
-hen     5
-pig     0
-fox     3
-
-=== String Hash (m = 11) ===
-Key     Index
------------------
-cat     10
-dog     6
-bat     6
-cow     7
-ant     9
-owl     6
-bee     5
-hen     5
-pig     0
-fox     9
-
-=== String Hash (m = 37) ===
-Key     Index
------------------
-cat     27
-dog     3
-bat     28
-cow     20
-ant     25
-owl     23
-bee     26
-hen     29
-pig     27
-fox     18
+  === Table Size m = 10 ===
+  Key     Index
+  -----------------
+  21      6
+  22      9
+  23      2
+  24      5
+  25      8
+  26      0
+  27      3
+  28      6
+  29      9
+  30      2
+  51      1
+  52      4
+  53      6
+  54      9
+  55      2
+  56      5
+  57      8
+  58      0
+  59      3
+  60      6
+  
+  === Table Size m = 11 ===
+  Key     Index
+  -----------------
+  21      5
+  22      7
+  23      9
+  24      0
+  25      2
+  26      10
+  27      1
+  28      3
+  29      5
+  30      7
+  51      7
+  52      9
+  53      6
+  54      8
+  55      10
+  56      1
+  57      3
+  58      0
+  59      2
+  60      4
+  
+  === Table Size m = 37 ===
+  Key     Index
+  -----------------
+  21      16
+  22      29
+  23      5
+  24      18
+  25      31
+  26      10
+  27      23
+  28      36
+  29      12
+  30      25
+  51      14
+  52      27
+  53      6
+  54      19
+  55      32
+  56      8
+  57      21
+  58      0
+  59      13
+  60      26
+  
+  === String Hash (m = 10) ===
+  Key     Index
+  -----------------
+  cat     2
+  dog     4
+  bat     1
+  cow     9
+  ant     3
+  owl     8
+  bee     0
+  hen     5
+  pig     0
+  fox     3
+  
+  === String Hash (m = 11) ===
+  Key     Index
+  -----------------
+  cat     10
+  dog     6
+  bat     6
+  cow     7
+  ant     9
+  owl     6
+  bee     5
+  hen     5
+  pig     0
+  fox     9
+  
+  === String Hash (m = 37) ===
+  Key     Index
+  -----------------
+  cat     27
+  dog     3
+  bat     28
+  cow     20
+  ant     25
+  owl     23
+  bee     26
+  hen     29
+  pig     27
+  fox     18
 
   === Hash Function Observation (C++ Version) ===
 
-=== Table Size m = 10 ===
-Key     Index
------------------
-21      6
-22      9
-23      2
-24      5
-25      8
-26      0
-27      3
-28      6
-29      9
-30      2
-51      1
-52      4
-53      6
-54      9
-55      2
-56      5
-57      8
-58      0
-59      3
-60      6
-
-=== Table Size m = 11 ===
-Key     Index
------------------
-21      5
-22      7
-23      9
-24      0
-25      2
-26      10
-27      1
-28      3
-29      5
-30      7
-51      7
-52      9
-53      6
-54      8
-55      10
-56      1
-57      3
-58      0
-59      2
-60      4
-
-=== Table Size m = 37 ===
-Key     Index
------------------
-21      16
-22      29
-23      5
-24      18
-25      31
-26      10
-27      23
-28      36
-29      12
-30      25
-51      14
-52      27
-53      6
-54      19
-55      32
-56      8
-57      21
-58      0
-59      13
-60      26
-
-=== String Hash (m = 10) ===
-Key     Index
------------------
-cat     2
-dog     4
-bat     1
-cow     9
-ant     3
-owl     8
-bee     0
-hen     5
-pig     0
-fox     3
-
-=== String Hash (m = 11) ===
-Key     Index
------------------
-cat     10
-dog     6
-bat     6
-cow     7
-ant     9
-owl     6
-bee     5
-hen     5
-pig     0
-fox     9
-
-=== String Hash (m = 37) ===
-Key     Index
------------------
-cat     27
-dog     3
-bat     28
-cow     20
-ant     25
-owl     23
-bee     26
-hen     29
-pig     27
-fox     18
+  === Table Size m = 10 ===
+  Key     Index
+  -----------------
+  21      6
+  22      9
+  23      2
+  24      5
+  25      8
+  26      0
+  27      3
+  28      6
+  29      9
+  30      2
+  51      1
+  52      4
+  53      6
+  54      9
+  55      2
+  56      5
+  57      8
+  58      0
+  59      3
+  60      6
+  
+  === Table Size m = 11 ===
+  Key     Index
+  -----------------
+  21      5
+  22      7
+  23      9
+  24      0
+  25      2
+  26      10
+  27      1
+  28      3
+  29      5
+  30      7
+  51      7
+  52      9
+  53      6
+  54      8
+  55      10
+  56      1
+  57      3
+  58      0
+  59      2
+  60      4
+  
+  === Table Size m = 37 ===
+  Key     Index
+  -----------------
+  21      16
+  22      29
+  23      5
+  24      18
+  25      31
+  26      10
+  27      23
+  28      36
+  29      12
+  30      25
+  51      14
+  52      27
+  53      6
+  54      19
+  55      32
+  56      8
+  57      21
+  58      0
+  59      13
+  60      26
+  
+  === String Hash (m = 10) ===
+  Key     Index
+  -----------------
+  cat     2
+  dog     4
+  bat     1
+  cow     9
+  ant     3
+  owl     8
+  bee     0
+  hen     5
+  pig     0
+  fox     3
+  
+  === String Hash (m = 11) ===
+  Key     Index
+  -----------------
+  cat     10
+  dog     6
+  bat     6
+  cow     7
+  ant     9
+  owl     6
+  bee     5
+  hen     5
+  pig     0
+  fox     9
+  
+  === String Hash (m = 37) ===
+  Key     Index
+  -----------------
+  cat     27
+  dog     3
+  bat     28
+  cow     20
+  ant     25
+  owl     23
+  bee     26
+  hen     29
+  pig     27
+  fox     18
   ```
 
 - Observations: Outputs align with the analysis, showing better distribution with prime table sizes.
