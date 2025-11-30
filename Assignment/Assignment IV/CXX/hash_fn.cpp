@@ -10,6 +10,8 @@
     - 2025/11/11: Initial implementation
     - 2025/11/23: Refactored to use hash_fn.hpp
     - 2025/11/25: improve hashing function
+    - 2025/11/30: change integer hash function to Universal Hashing method:
+                  ((ax + b) % p) % m
 
    Developer: Yu-Feng Huang <yfhuang@saturn.yzu.edu.tw>
  */
@@ -17,16 +19,20 @@
 #include <cmath>
 
 
-//multiplication Method
+//Universal Hashing method(based on Division Method)
 int myHashInt(int key, int m) {
 
     if (m <= 0) return 0; 
-    
-    unsigned int k = (unsigned int)std::abs(key); //non negative
-    const unsigned int HASH_MULTIPLIER = 31;  // to decentralize data
-    unsigned int scrambled_key = k * HASH_MULTIPLIER; //multiplicative mixing
 
-    return scrambled_key % m;  // basic division method
+    const unsigned int p = 97; //prime
+    const unsigned int a = 31; 
+    const unsigned int b = 15; //Offset
+
+    unsigned int k = (unsigned int)key; //non negative
+    // step 1 : scramble consecutive inputs
+    unsigned int scrambled_key = (a * k + b) % p;
+
+    return scrambled_key % m;  // Maps the scrambled value to hash table
 }
 
 //basic covert each character to  ASCII code and combine them
